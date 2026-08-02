@@ -1,28 +1,295 @@
 <!doctype html>
 <html lang="en-AU">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#090b10">
-  <meta name="description" content="PackSignal helps Australian dog owners find safer walk times, real off-leash areas and nearby lost-pet signals.">
-  <title>PackSignal — safer walks, stronger local packs</title>
-  <style>
-    :root{color-scheme:dark;--ink:#090b10;--panel:#131722;--lime:#cfff00;--pink:#ff65ad;--text:#f8fafc;--muted:#aab3c2;--line:#293141}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 78% 8%,#183a42 0,transparent 30%),radial-gradient(circle at 18% 45%,#2d1640 0,transparent 26%),var(--ink);color:var(--text);font:16px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Display",system-ui,sans-serif}
-    a{color:inherit}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}nav{display:flex;align-items:center;justify-content:space-between;padding:24px 0}.brand{display:flex;align-items:center;gap:10px;font-weight:850;text-decoration:none;letter-spacing:-.02em}.mark{display:grid;place-items:center;width:36px;height:36px;border-radius:12px;background:var(--lime);color:#070908;box-shadow:0 0 28px #cfff0038}.links{display:flex;gap:22px}.links a{color:var(--muted);text-decoration:none;font-size:14px}.hero{min-height:670px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:70px;padding:66px 0 100px}.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid #b9e60055;border-radius:999px;padding:7px 12px;color:var(--lime);font-weight:700;font-size:13px;background:#cfff000b}.dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime)}h1{font-size:clamp(52px,7vw,88px);line-height:.95;letter-spacing:-.065em;margin:24px 0}.gradient{background:linear-gradient(105deg,var(--lime),#79f2dc 48%,var(--pink));-webkit-background-clip:text;color:transparent}.lead{color:var(--muted);font-size:clamp(18px,2vw,22px);max-width:650px}.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}.button{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:800;border-radius:15px;padding:14px 19px;background:var(--lime);color:#090b10}.button.secondary{background:#ffffff0a;color:var(--text);border:1px solid var(--line)}.phone{position:relative;margin:auto;width:min(350px,88vw);aspect-ratio:.51;border:1px solid #546174;border-radius:48px;padding:13px;background:#020305;box-shadow:0 40px 90px #0009,0 0 80px #3fddcc22;transform:rotate(2deg)}.screen{height:100%;border-radius:37px;overflow:hidden;background:linear-gradient(#15323f,#172241 56%,#081934);padding:35px 18px 20px;position:relative}.island{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:115px;height:28px;background:#000;border-radius:18px}.weather{display:flex;justify-content:space-between;color:#dbe7f2;font-weight:800}.map-grid{position:absolute;inset:85px 0 0;background-image:linear-gradient(#8db4ca20 1px,transparent 1px),linear-gradient(90deg,#8db4ca20 1px,transparent 1px);background-size:38px 38px;transform:skewY(-8deg);opacity:.7}.pin{position:absolute;width:46px;height:46px;border-radius:50%;background:#07090b;border:2px solid var(--lime);display:grid;place-items:center;font-size:20px;box-shadow:0 8px 24px #0008}.p1{top:145px;left:55px}.p2{top:260px;right:40px}.p3{top:360px;left:95px}.you{position:absolute;top:310px;left:52%;width:24px;height:24px;border:4px solid white;border-radius:50%;background:#248cff;box-shadow:0 0 0 8px #248cff38}.alert{position:absolute;left:18px;right:18px;bottom:78px;padding:14px;border-radius:18px;background:#ff65ad;color:#17040d;font-weight:850;display:flex;justify-content:space-between}.tab{position:absolute;bottom:15px;left:18px;right:18px;height:50px;border:1px solid #4e6bed66;border-radius:24px;background:#12347ce0;display:flex;align-items:center;justify-content:space-around;color:#cfe1ff}.tab b{color:var(--lime)}section{padding:90px 0}.section-title{font-size:clamp(36px,5vw,58px);letter-spacing:-.045em;line-height:1.02;margin:0 0 18px}.section-copy{color:var(--muted);max-width:680px;font-size:18px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}.card{padding:26px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,#171c28dd,#0e1119cc);min-height:215px}.icon{font-size:28px}.card h3{font-size:20px;margin:18px 0 8px}.card p{color:var(--muted);margin:0}.promise{border-radius:32px;padding:clamp(28px,6vw,70px);background:linear-gradient(120deg,#d0ff00,#73eecf);color:#07100d}.promise h2{font-size:clamp(38px,6vw,64px);line-height:1;letter-spacing:-.05em;margin:0 0 18px}.promise p{max-width:700px;font-size:19px}.fine{font-size:13px;color:#38463e}footer{padding:45px 0 60px;color:var(--muted);display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}.footer-links{display:flex;gap:18px;flex-wrap:wrap}.footer-links a{text-decoration:none}
-    @media(max-width:800px){.hero{grid-template-columns:1fr;text-align:center;padding-top:35px}.lead{margin:auto}.cta{justify-content:center}.phone{width:310px}.grid{grid-template-columns:1fr}.links a:not(:last-child){display:none}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0A0B0D">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="PackSignal is a free safety-first walk app for Australian dog owners: paw-burn heat checks, 1,555 real council off-leash areas, community hazard warnings and lost-pet sightings. iOS, TestFlight beta open.">
+<title>PackSignal — know before the pavement does</title>
+<style>
+:root{color-scheme:dark;--bg:#0A0B0D;--panel:#121319;--panel2:#0E0F14;--line:#23262E;--text:#F5F7FA;--muted:#9BA3AF;--lime:#CCFF00;--ink:#05060a;--pink:#FF65AD}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 82% 6%,#1a2b12 0,transparent 32%),radial-gradient(circle at 12% 40%,#2a1520 0,transparent 30%),var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{max-width:100%;display:block}
+.wrap{width:min(1160px,calc(100% - 40px));margin:0 auto}
+.skip-link{position:absolute;left:-999px;top:auto;background:var(--lime);color:var(--ink);padding:12px 18px;border-radius:0 0 10px 0;font-weight:700;z-index:100}
+.skip-link:focus{left:0;top:0}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px;border-radius:4px}
+
+header.site{position:sticky;top:0;z-index:20;background:rgba(10,11,13,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;letter-spacing:-.02em;font-size:17px;color:var(--text)}
+.mark{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--lime);color:var(--ink);font-size:17px;box-shadow:0 0 22px #ccff0033}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{display:none}
+.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:800;border-radius:13px;padding:13px 20px;background:var(--lime);color:var(--ink);border:1px solid transparent;font-size:15px;transition:transform .15s ease,box-shadow .15s ease}
+.button:hover{transform:translateY(-1px);box-shadow:0 10px 26px #ccff0026}
+.button.secondary{background:transparent;color:var(--text);border-color:var(--line)}
+.button.secondary:hover{border-color:#3a3f4a;background:#ffffff08}
+.button.small{padding:9px 15px;font-size:13px;border-radius:10px}
+
+.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #ccff0040;border-radius:999px;padding:7px 13px;color:var(--lime);font-weight:700;font-size:12.5px;background:#ccff0009}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime)}
+
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:60px 0 84px}
+h1{font-size:clamp(38px,6vw,64px);line-height:1.02;letter-spacing:-.04em;margin:20px 0 18px}
+.hero p.lead{color:var(--muted);font-size:clamp(17px,2vw,19px);max-width:520px;margin:0 0 30px}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.hero-note{margin-top:16px;font-size:13px;color:var(--muted)}
+
+.phone-wrap{display:flex;justify-content:center}
+.phone{position:relative;width:min(272px,80vw);aspect-ratio:9/19.3;border:1px solid #363b45;border-radius:46px;padding:11px;background:#020203;box-shadow:0 40px 90px -20px #000c,0 0 0 1px #000;transform:rotate(1.5deg)}
+.screen{position:relative;height:100%;border-radius:36px;overflow:hidden;background:linear-gradient(160deg,#12262c 0%,#0f1a2c 55%,#0a1220 100%);padding:16px 14px 14px;display:flex;flex-direction:column;gap:12px}
+.notch{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:88px;height:22px;background:#000;border-radius:14px;z-index:2}
+.status-row{display:flex;justify-content:space-between;align-items:center;color:#cfe0e6;font-size:12px;font-weight:700;padding:0 4px;margin-top:2px}
+.paw-card{background:linear-gradient(135deg,var(--lime) 0%,#8CF2C4 100%);color:#08150c;border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:6px;box-shadow:0 12px 30px -10px #00000066}
+.paw-badge{width:34px;height:34px;border-radius:50%;background:#08150c22;display:grid;place-items:center;font-size:17px;margin-bottom:2px}
+.paw-card strong{font-size:19px;letter-spacing:-.02em}
+.paw-sub{font-size:12.5px;font-weight:700;opacity:.85}
+.paw-pill{align-self:flex-start;margin-top:6px;background:#08150c1f;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:800}
+.mini{background:#ffffff0d;border:1px solid #ffffff14;border-radius:14px;padding:10px 12px;display:flex;align-items:center;gap:9px;font-size:12px;color:#dfe8ee;font-weight:600}
+.tabbar{margin-top:auto;display:flex;align-items:center;justify-content:space-around;background:#0009;border:1px solid #ffffff14;border-radius:18px;padding:10px 6px}
+.tabbar span{font-size:15px;opacity:.55}
+.tabbar span.on{opacity:1;color:var(--lime);text-shadow:0 0 12px #ccff0088}
+
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:40px 0}
+.stat-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.stat-grid strong{display:block;font-size:clamp(24px,4vw,36px);letter-spacing:-.03em;color:var(--lime)}
+.stat-grid span{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+
+section{padding:88px 0}
+.section-head{max-width:640px;margin:0 0 40px}
+.eyebrow-sm{color:var(--lime);font-weight:800;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase}
+.section-title{font-size:clamp(30px,4.2vw,44px);letter-spacing:-.035em;line-height:1.05;margin:10px 0 14px}
+.section-copy{color:var(--muted);font-size:16.5px;max-width:600px}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{padding:26px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(160deg,#15161ce6,#0d0e12cc)}
+.card .icon{width:44px;height:44px;border-radius:12px;background:#ccff0014;display:grid;place-items:center;font-size:20px;margin-bottom:16px}
+.card.pink .icon{background:#ff65ad17;box-shadow:0 0 0 1px #ff65ad30 inset}
+.card h3{font-size:18px;margin:0 0 8px;letter-spacing:-.01em}
+.card p{color:var(--muted);margin:0;font-size:14.5px;line-height:1.55}
+
+.promise{border-radius:28px;padding:clamp(30px,6vw,64px);background:linear-gradient(120deg,#D6FF3D,#7CE8C9 70%);color:#07120a;display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+.promise h2{font-size:clamp(30px,5vw,46px);line-height:1.02;letter-spacing:-.04em;margin:0 0 14px}
+.promise p{font-size:16px;margin:0 0 10px;max-width:520px}
+.promise .fine{font-size:12.5px;color:#1f2e21;opacity:.85;margin-top:14px}
+.promise-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.promise-list li{background:#08150c14;border-radius:12px;padding:12px 14px;font-weight:700;font-size:14px;display:flex;gap:9px}
+
+.faq-item{border-bottom:1px solid var(--line);padding:18px 0}
+.faq-item summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;font-weight:700;font-size:16.5px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item .chev{color:var(--lime);font-size:20px;flex:none;transition:transform .2s ease}
+.faq-item[open] .chev{transform:rotate(45deg)}
+.faq-item p{color:var(--muted);margin:12px 0 0;max-width:680px;font-size:15px}
+
+.cta-band{border-radius:28px;padding:clamp(36px,7vw,72px);text-align:center;border:1px solid var(--line);background:radial-gradient(circle at 50% 0%,#ccff0014,transparent 60%),var(--panel)}
+.cta-band h2{font-size:clamp(28px,4.5vw,42px);letter-spacing:-.035em;margin:0 0 12px}
+.cta-band p{color:var(--muted);max-width:480px;margin:0 auto 26px}
+.cta-band .cta-row{justify-content:center}
+
+footer.site{border-top:1px solid var(--line);padding:44px 0 56px}
+.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:26px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:600}
+.footer-links a:hover{color:var(--text)}
+.footer-bottom{color:#6b7280;font-size:12.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:1px solid var(--line);padding-top:20px}
+
+.reveal{opacity:1;transform:none}
+html.js .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+html.js .reveal.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  html.js .reveal{opacity:1;transform:none;transition:none}
+  .button:hover{transform:none}
+}
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;text-align:center;padding-top:30px}
+  .hero p.lead{margin:0 auto 28px}
+  .cta-row{justify-content:center}
+  .phone-wrap{order:-1;margin-bottom:8px}
+  .grid{grid-template-columns:1fr 1fr}
+  .promise{grid-template-columns:1fr}
+  .stat-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .nav-links a:not(.nav-cta-mobile){display:none}
+  .grid{grid-template-columns:1fr}
+  section{padding:64px 0}
+}
+</style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site">
   <div class="wrap">
-    <nav><a class="brand" href="/"><span class="mark">🐾</span> PackSignal</a><div class="links"><a href="#features">Features</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a></div></nav>
-    <main class="hero">
-      <div><span class="eyebrow"><span class="dot"></span> TestFlight beta now open</span><h1>Every walk starts with a <span class="gradient">better signal.</span></h1><p class="lead">Paw-safe conditions, real council off-leash areas and local lost-pet sightings—built for Australian dog owners who look out for one another.</p><div class="cta"><a class="button" href="support.html">Join the beta →</a><a class="button secondary" href="#features">See what’s inside</a></div></div>
-      <div class="phone" aria-label="PackSignal map preview"><div class="screen"><div class="island"></div><div class="weather"><span>12:52</span><span>18° · Clear</span></div><div class="map-grid"></div><span class="pin p1">🐕</span><span class="pin p2">🐕</span><span class="pin p3">🐕</span><span class="you"></span><div class="alert"><span>🐾 Lost &amp; found</span><span>›</span></div><div class="tab"><span>🐾</span><b>🗺</b><span>◷</span><span>●</span></div></div></div>
-    </main>
-    <section id="features"><h2 class="section-title">Useful before, during and after the walk.</h2><p class="section-copy">No attention traps. No ads. PackSignal earns the next open by being genuinely useful when your dog needs you.</p><div class="grid"><article class="card"><span class="icon">☀️</span><h3>Paw check</h3><p>Live weather becomes a clear surface-safety call, including the next safer walk window.</p></article><article class="card"><span class="icon">🗺️</span><h3>Real local maps</h3><p>960 council-sourced off-leash areas with fencing, rules and provenance—not empty map pins.</p></article><article class="card"><span class="icon">📍</span><h3>Lost-pet signal chain</h3><p>Link sightings, photos, direction and time to the original alert so nearby owners can act together.</p></article><article class="card"><span class="icon">🐕</span><h3>Walk history</h3><p>Record routes locally, spot healthy routines and share a polished walk card when you choose.</p></article><article class="card"><span class="icon">🧠</span><h3>On-device dog guidance</h3><p>Behaviour explanations and PawAI run privately using Apple’s on-device intelligence.</p></article><article class="card"><span class="icon">🤝</span><h3>Your local pack</h3><p>Optional Sign in with Apple prepares secure ownership and moderation without blocking guest access.</p></article></div></section>
-    <section><div class="promise"><h2>Safety stays free.</h2><p>Maps, hazard signals, lost and found, weather safety and community visibility will never sit behind a paywall. PackSignal Pack funds the network with optional planning and household tools.</p><p class="fine">PackSignal provides guidance, not veterinary advice. Always use your judgement and follow on-site council signage.</p></div></section>
+    <nav aria-label="Primary">
+      <a class="brand" href="/"><span class="mark" aria-hidden="true">🐾</span> PackSignal</a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#safety">Safety</a>
+        <a href="#faq">FAQ</a>
+        <a class="button small js-beta" href="#">Join the beta</a>
+      </div>
+    </nav>
   </div>
-  <div class="wrap"><footer><span>© 2026 PackSignal · Made in Australia</span><div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="delete.html">Delete account</a><a href="support.html">Support</a></div></footer></div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <section class="hero">
+      <div>
+        <span class="eyebrow"><span class="dot" aria-hidden="true"></span> TestFlight beta now open · iOS</span>
+        <h1>Know before the pavement does.</h1>
+        <p class="lead">PackSignal checks paw-burn risk before every walk, maps 1,555 real council off-leash areas, and links up nearby lost-pet sightings — built by dog owners, for Australian dog owners.</p>
+        <div class="cta-row">
+          <a class="button js-beta" href="#">Join the TestFlight beta →</a>
+          <a class="button secondary" href="#features">See what's inside</a>
+        </div>
+        <p class="hero-note">Free on iOS. No account required to stay safe.</p>
+      </div>
+      <div class="phone-wrap">
+        <div class="phone" role="img" aria-label="PackSignal app showing a paw-check screen: Good to walk, pavement 29 degrees, safe for now, cooler after 5:30pm, at Bronte Beach off-leash area">
+          <div class="notch" aria-hidden="true"></div>
+          <div class="screen" aria-hidden="true">
+            <div class="status-row"><span>9:41</span><span>Bronte Beach</span></div>
+            <div class="paw-card">
+              <span class="paw-badge">🐾</span>
+              <strong>Good to walk</strong>
+              <span class="paw-sub">Pavement 29°C · safe for now</span>
+              <span class="paw-pill">Cooler after 5:30pm</span>
+            </div>
+            <div class="mini"><span>🗺️</span> Off-leash area · 400m, fenced</div>
+            <div class="mini"><span>⚠️</span> 1 hazard reported nearby</div>
+            <div class="tabbar">
+              <span class="on">🐾</span><span>🗺️</span><span>📍</span><span>👤</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="stats" aria-label="PackSignal by the numbers">
+    <div class="wrap">
+      <ul class="stat-grid reveal">
+        <li><strong>1,555</strong><span>off-leash areas mapped</span></li>
+        <li><strong>29</strong><span>councils</span></li>
+        <li><strong>6</strong><span>states</span></li>
+        <li><strong>24/7</strong><span>Poisons hotline in Emergency</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section id="features">
+      <div class="section-head reveal">
+        <span class="eyebrow-sm">Features</span>
+        <h2 class="section-title">Useful before, during and after the walk.</h2>
+        <p class="section-copy">No attention traps, no ads. PackSignal earns the next open by being genuinely useful when your dog needs you.</p>
+      </div>
+      <div class="grid">
+        <article class="card reveal"><div class="icon" aria-hidden="true">🐾</div><h3>Paw check</h3><p>Live weather becomes a clear paw-burn safety call, calibrated against published veterinary data, plus the next safer walk window.</p></article>
+        <article class="card reveal"><div class="icon" aria-hidden="true">🗺️</div><h3>Real off-leash maps</h3><p>1,555 council-sourced off-leash areas across 29 councils and 6 states, with fencing and rules — not empty map pins.</p></article>
+        <article class="card pink reveal"><div class="icon" aria-hidden="true">📍</div><h3>Lost-pet signal chain</h3><p>Sightings, photos, direction and time link straight back to the original alert, so nearby owners can act together fast.</p></article>
+        <article class="card reveal"><div class="icon" aria-hidden="true">🐕</div><h3>Walk history + share cards</h3><p>Every walk recorded on your device. Spot healthy routines, and share a polished walk card when you choose to.</p></article>
+        <article class="card reveal"><div class="icon" aria-hidden="true">🧠</div><h3>On-device AI behaviour guide</h3><p>Ask about barking, reactivity or recall and get a private answer, powered by Apple's on-device intelligence — nothing leaves your phone.</p></article>
+        <article class="card reveal"><div class="icon" aria-hidden="true">⚠️</div><h3>Community hazards</h3><p>Snakes, ticks, glass, toxic plants and mess hotspots reported by nearby owners, so you know what's ahead before your dog does.</p></article>
+      </div>
+    </section>
+
+    <section id="safety">
+      <div class="promise reveal">
+        <div>
+          <h2>Safety stays free.</h2>
+          <p>Paw checks, off-leash maps, hazard warnings and lost &amp; found will never sit behind a paywall. That's the whole point of the app.</p>
+          <p class="fine">PackSignal provides guidance, not veterinary advice. Always use your own judgement and follow on-site council signage. In an emergency, contact a vet or the Animal Poisons Helpline.</p>
+        </div>
+        <ul class="promise-list">
+          <li>🐕 Optional Pack subscription</li>
+          <li>👥 Multi-dog profiles</li>
+          <li>📅 7-day safety outlook</li>
+          <li>📖 Full walk history</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="section-head reveal">
+        <span class="eyebrow-sm">FAQ</span>
+        <h2 class="section-title">Straight answers.</h2>
+      </div>
+      <div class="reveal">
+        <details class="faq-item">
+          <summary>Is PackSignal free? <span class="chev" aria-hidden="true">+</span></summary>
+          <p>Yes. Paw checks, off-leash maps, hazard warnings and lost &amp; found are free and always will be. The optional Pack subscription adds multi-dog profiles, a 7-day safety outlook and full walk history.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How accurate is the paw check? <span class="chev" aria-hidden="true">+</span></summary>
+          <p>It's a model calibrated against published veterinary data — at 25°C air temperature, full-sun asphalt can reach roughly 52°C, hot enough to burn a paw in about a minute. Treat it as strong guidance, and always confirm with the back-of-hand test before you walk.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you track me? <span class="chev" aria-hidden="true">+</span></summary>
+          <p>No. Location is only used while the app is open, to check conditions where you are and find nearby off-leash areas. There's no background tracking, no advertising SDKs, and we never sell or share your data.</p>
+        </details>
+        <details class="faq-item">
+          <summary>When's Android coming? <span class="chev" aria-hidden="true">+</span></summary>
+          <p>iOS first — no date yet for Android. We're building for iPhone owners now and will share news when there's something real to say.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do I join the beta? <span class="chev" aria-hidden="true">+</span></summary>
+          <p>Tap "Join the TestFlight beta" above, install Apple's TestFlight app if you don't have it, then follow the invite link to install PackSignal.</p>
+        </details>
+      </div>
+    </section>
+
+    <section aria-label="Join the beta">
+      <div class="cta-band reveal">
+        <h2>Ready to walk smarter?</h2>
+        <p>Join the TestFlight beta and help shape PackSignal before the public launch.</p>
+        <div class="cta-row"><a class="button js-beta" href="#">Join the TestFlight beta →</a></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="brand" href="/"><span class="mark" aria-hidden="true">🐾</span> PackSignal</a>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="delete.html">Delete account</a>
+        <a href="support.html">Support</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PackSignal · Made in Australia</span>
+      <span>ABN: pending</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(!('IntersectionObserver' in window)) return;
+  document.documentElement.classList.add('js');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
 </body>
 </html>

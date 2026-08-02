@@ -1,18 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-AU">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0A0B0D">
+<meta name="color-scheme" content="dark">
 <title>Support — PackSignal</title>
 <style>
-  :root { color-scheme: dark; }
-  body { background:#0A0B0D; color:#F5F7FA; font-family:-apple-system,system-ui,sans-serif;
-         max-width:680px; margin:0 auto; padding:32px 20px; line-height:1.65; }
-  h1 { font-size:1.9rem; } h2 { font-size:1.15rem; margin-top:2em; color:#CCFF00; }
-  p, li { color:#B8BEC6; } a { color:#CCFF00; }
+:root{color-scheme:dark;--bg:#0A0B0D;--panel:#121319;--line:#23262E;--text:#F5F7FA;--muted:#9BA3AF;--lime:#CCFF00;--ink:#05060a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{width:min(1160px,calc(100% - 40px));margin:0 auto}
+.skip-link{position:absolute;left:-999px;top:auto;background:var(--lime);color:var(--ink);padding:12px 18px;border-radius:0 0 10px 0;font-weight:700;z-index:100}
+.skip-link:focus{left:0;top:0}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px;border-radius:4px}
+header.site{position:sticky;top:0;z-index:20;background:rgba(10,11,13,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;letter-spacing:-.02em;font-size:17px;color:var(--text)}
+.mark{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--lime);color:var(--ink);font-size:17px;box-shadow:0 0 22px #ccff0033}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
+.nav-links a:hover{color:var(--text)}
+.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:800;border-radius:10px;padding:9px 15px;background:var(--lime);color:var(--ink);font-size:13px}
+main{padding:64px 0 40px}
+.legal{max-width:700px;margin:0 auto}
+.legal h1{font-size:clamp(28px,5vw,40px);letter-spacing:-.03em;margin:0 0 6px}
+.legal .updated{color:var(--muted);font-size:13px;margin:0 0 34px}
+.legal h2{color:var(--lime);font-size:19px;letter-spacing:-.01em;margin:34px 0 10px}
+.legal p,.legal li{color:var(--muted);font-size:15.5px;line-height:1.7}
+.legal ul{padding-left:22px;margin:10px 0}
+.legal li{margin:8px 0}
+.legal strong{color:var(--text)}
+.legal a{color:var(--lime);text-decoration:underline;text-underline-offset:2px}
+footer.site{border-top:1px solid var(--line);padding:40px 0 56px;margin-top:40px}
+.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:26px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:600}
+.footer-links a:hover{color:var(--text)}
+.footer-bottom{color:#6b7280;font-size:12.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:1px solid var(--line);padding-top:20px}
+@media(max-width:600px){.nav-links a:not(.button){display:none}}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site">
+  <div class="wrap">
+    <nav aria-label="Primary">
+      <a class="brand" href="/"><span class="mark" aria-hidden="true">🐾</span> PackSignal</a>
+      <div class="nav-links">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#faq">FAQ</a>
+        <a class="button js-beta" href="#">Join the beta</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <div class="wrap">
+    <article class="legal">
 <h1>🐾 Support</h1>
 
 <h2>Get in touch</h2>
@@ -33,5 +79,25 @@
 
 <h2>How do I delete my data?</h2>
 <p>See <a href="delete.html">data deletion</a>. On-device information is removed with the app; an optional PackSignal account can be permanently deleted under Pack → Account.</p>
+    </article>
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="brand" href="/"><span class="mark" aria-hidden="true">🐾</span> PackSignal</a>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="delete.html">Delete account</a>
+        <a href="support.html">Support</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PackSignal · Made in Australia</span>
+      <span>ABN: pending</span>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
