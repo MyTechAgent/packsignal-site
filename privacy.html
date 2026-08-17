@@ -60,15 +60,23 @@ footer.site{border-top:1px solid var(--line);padding:40px 0 56px;margin-top:40px
   <div class="wrap">
     <article class="legal">
 <h1>🐾 Privacy Policy</h1>
-<p class="updated">Last updated: 2 August 2026 · Applies to the PetSignal iOS app</p>
+<p class="updated">Last updated: 17 August 2026 · Applies to the PetSignal iOS app</p>
 
-<p>PetSignal is built local-first: the most private place for your data is your own phone, so that is where almost all of it stays.</p>
+<p>PetSignal is built local-first: the most private place for your data is your own phone, so that is where it lives and where the app reads and writes it. The app works fully offline and no account is required to use it.</p>
+
+<p>There is one exception, and you choose it: <strong>if you sign in, your dogs and walks are backed up to your own account</strong> so that a new phone, or reinstalling the app, doesn’t lose them. Nothing is uploaded while you are signed out.</p>
+
+<h2>What is backed up to your account (only if you sign in)</h2>
+<ul>
+<li><strong>Walk routes and history</strong> — including the route itself, which is precise location data.</li>
+<li><strong>Dog profiles and photos</strong> — as you entered them.</li>
+</ul>
+<p>These are stored on our Australian server (Sydney) and are readable only by your own account. Database-level rules restrict every row to the account that created it; no other user, signed in or not, can read them. We do not share, sell, aggregate or publish them, and they are never shown to another user. Signing out leaves the copy on your phone untouched. Deleting your account deletes the backup with it.</p>
 
 <h2>What stays on your device (never uploaded)</h2>
 <ul>
-<li><strong>Walk routes and history</strong> — recorded and stored only on your phone. We never see where you walk.</li>
-<li><strong>Dog profiles and photos</strong> — stored on-device. Photos are re-encoded on save, which strips location metadata.</li>
 <li><strong>AI conversations</strong> — “Ask PawAI” runs on Apple’s on-device model. Questions and answers never leave your phone and are not stored by us.</li>
+<li><strong>Saved and smart places</strong> — the places your walks tend to end, kept only on your phone.</li>
 <li><strong>Park community drafts, posts and media</strong> — while the public community service is disabled, anything you create in The Park remains on your phone and is not uploaded. We will update this policy and ask for agreement before public sharing is enabled.</li>
 </ul>
 
@@ -81,7 +89,7 @@ footer.site{border-top:1px solid var(--line);padding:40px 0 56px;margin-top:40px
 <p>These are stored on our Australian server (Sydney) with no account attached — we do not link reports to an identity. Reports expire automatically (hazards up to 30 days by type; lost &amp; found after 14 days).</p>
 
 <h2>Location</h2>
-<p>Location is used only while the app is open (“When In Use”), to show conditions where you are, find nearby off-leash areas, and record your walk locally. We never request always-on background location, and no other user is ever shown your precise location.</p>
+<p>Location is used to show conditions where you are, find nearby off-leash areas, and record your walk. We ask only for “When In Use” permission and never for always-on background access; while a walk is actually recording, location continues in the background so the route isn’t broken when your screen locks, which iOS shows you with its status indicator. No other user is ever shown your precise location. If you are signed in, the recorded route is backed up to your own account as described above.</p>
 
 <h2>Weather</h2>
 <p>Conditions come from <a href="https://open-meteo.com/">Open-Meteo</a>. The request contains approximate coordinates and nothing else. Weather data is provided under CC BY 4.0 and is modified by PetSignal’s clearly labelled pavement-temperature estimate.</p>
@@ -95,7 +103,7 @@ footer.site{border-top:1px solid var(--line);padding:40px 0 56px;margin-top:40px
 </ul>
 
 <h2>Deleting your data</h2>
-<p>Deleting the app deletes everything stored on your device. Optional accounts can be permanently deleted inside PetSignal under Pack → Account. See <a href="delete.html">data deletion</a>.</p>
+<p>Deleting the app deletes everything stored on your device — and, because that copy is the only one when you are signed out, it cannot be recovered. Optional accounts can be permanently deleted inside PetSignal under Pack → Account; deleting the account also deletes the dogs and walks backed up to it. See <a href="delete.html">data deletion</a>.</p>
 
 <h2>Children</h2>
 <p>PetSignal is not directed at children under 16.</p>
