@@ -8,7 +8,7 @@
 <meta name="description" content="PetSignal is a free safety-first walk app for Australian dog owners: paw-burn heat checks, 1,637 real council off-leash areas, community hazard warnings and lost-pet sightings. iOS, TestFlight beta open.">
 <title>PetSignal — know before the pavement does</title>
 <style>
-:root{color-scheme:dark;--bg:#0A0B0D;--panel:#121319;--panel2:#0E0F14;--line:#23262E;--text:#F5F7FA;--muted:#9BA3AF;--lime:#CCFF00;--ink:#05060a;--pink:#FF65AD}
+:root{color-scheme:dark;--bg:#0A0B0D;--panel:#121319;--panel2:#0E0F14;--line:#23262E;--text:#F5F7FA;--muted:#9BA3AF;--lime:#CCFF00;--ink:#05060a;--pink:#FF65AD;--blue:#6FE0FF}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:radial-gradient(circle at 82% 6%,#1a2b12 0,transparent 32%),radial-gradient(circle at 12% 40%,#2a1520 0,transparent 30%),var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
@@ -19,14 +19,13 @@ img,svg{max-width:100%;display:block}
 .skip-link:focus{left:0;top:0}
 :focus-visible{outline:2px solid var(--lime);outline-offset:3px;border-radius:4px}
 
-header.site{position:sticky;top:0;z-index:20;background:rgba(10,11,13,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.site{position:sticky;top:0;z-index:40;background:rgba(10,11,13,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;letter-spacing:-.02em;font-size:17px;color:var(--text)}
 .mark{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--lime);color:var(--ink);font-size:17px;box-shadow:0 0 22px #ccff0033}
 .nav-links{display:flex;align-items:center;gap:26px}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
 .nav-links a:hover{color:var(--text)}
-.nav-cta{display:none}
 .button{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:800;border-radius:13px;padding:13px 20px;background:var(--lime);color:var(--ink);border:1px solid transparent;font-size:15px;transition:transform .15s ease,box-shadow .15s ease}
 .button:hover{transform:translateY(-1px);box-shadow:0 10px 26px #ccff0026}
 .button.secondary{background:transparent;color:var(--text);border-color:var(--line)}
@@ -35,33 +34,38 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0
 
 .eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #ccff0040;border-radius:999px;padding:7px 13px;color:var(--lime);font-weight:700;font-size:12.5px;background:#ccff0009}
 .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime)}
+.dot.pulse{animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(1.5)}}
 
-.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:60px 0 84px}
+/* ---------- Hero ---------- */
+.hero{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:60px 0 84px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-20% -10% auto -10%;height:520px;background:radial-gradient(ellipse at 30% 0%,#1c3a12aa,transparent 60%);pointer-events:none;z-index:0}
+.hero>*{position:relative;z-index:1}
 h1{font-size:clamp(38px,6vw,64px);line-height:1.02;letter-spacing:-.04em;margin:20px 0 18px}
 .hero p.lead{color:var(--muted);font-size:clamp(17px,2vw,19px);max-width:520px;margin:0 0 30px}
 .cta-row{display:flex;gap:12px;flex-wrap:wrap}
 .hero-note{margin-top:16px;font-size:13px;color:var(--muted)}
+.trust-row{display:flex;gap:22px;flex-wrap:wrap;margin-top:26px}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);font-weight:600}
+.trust-item .ic{font-size:15px}
 
-.phone-wrap{display:flex;justify-content:center}
-.phone{position:relative;width:min(272px,80vw);aspect-ratio:9/19.3;border:1px solid #363b45;border-radius:46px;padding:11px;background:#020203;box-shadow:0 40px 90px -20px #000c,0 0 0 1px #000;transform:rotate(1.5deg)}
-.screen{position:relative;height:100%;border-radius:36px;overflow:hidden;background:linear-gradient(160deg,#12262c 0%,#0f1a2c 55%,#0a1220 100%);padding:16px 14px 14px;display:flex;flex-direction:column;gap:12px}
+.phone-wrap{display:flex;justify-content:center;position:relative}
+.phone-wrap::after{content:"";position:absolute;width:min(272px,80vw);aspect-ratio:9/19.3;border-radius:46px;background:radial-gradient(ellipse at 50% 20%,#ccff0033,transparent 70%);filter:blur(30px);z-index:0}
+.phone{position:relative;width:min(272px,80vw);aspect-ratio:9/19.3;border:1px solid #363b45;border-radius:46px;padding:11px;background:#020203;box-shadow:0 40px 90px -20px #000c,0 0 0 1px #000;transform:rotate(1.5deg);z-index:1}
+.screen{position:relative;height:100%;border-radius:36px;overflow:hidden;background:linear-gradient(160deg,#12262c 0%,#0f1a2c 55%,#0a1220 100%)}
 .screen-shot{display:block;width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:36px}
+.float-chip{position:absolute;display:flex;align-items:center;gap:8px;background:#0c0e13ee;border:1px solid #ffffff1c;border-radius:14px;padding:9px 12px;font-size:12px;font-weight:700;box-shadow:0 14px 30px -10px #000c;backdrop-filter:blur(6px);z-index:2}
+.float-chip.top{top:-14px;left:-18px}
+.float-chip.bottom{bottom:20px;right:-22px;flex-direction:column;align-items:flex-start;gap:2px}
+.float-chip .chip-label{color:var(--muted);font-weight:600;font-size:10.5px;text-transform:uppercase;letter-spacing:.04em}
+.float-chip .chip-value{color:var(--lime);font-size:14px}
+@media(max-width:860px){.float-chip{display:none}}
+
 .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
 .shots figure{margin:0}
 .shots img{width:100%;height:auto;border-radius:22px;border:1px solid #2a2f38;box-shadow:0 24px 50px -22px #000e;display:block}
 .shots figcaption{margin-top:10px;font-size:.86rem;color:#8a9199;line-height:1.45}
 @media(max-width:720px){.shots{grid-template-columns:1fr;gap:26px}}
-.notch{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:88px;height:22px;background:#000;border-radius:14px;z-index:2}
-.status-row{display:flex;justify-content:space-between;align-items:center;color:#cfe0e6;font-size:12px;font-weight:700;padding:0 4px;margin-top:2px}
-.paw-card{background:linear-gradient(135deg,var(--lime) 0%,#8CF2C4 100%);color:#08150c;border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:6px;box-shadow:0 12px 30px -10px #00000066}
-.paw-badge{width:34px;height:34px;border-radius:50%;background:#08150c22;display:grid;place-items:center;font-size:17px;margin-bottom:2px}
-.paw-card strong{font-size:19px;letter-spacing:-.02em}
-.paw-sub{font-size:12.5px;font-weight:700;opacity:.85}
-.paw-pill{align-self:flex-start;margin-top:6px;background:#08150c1f;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:800}
-.mini{background:#ffffff0d;border:1px solid #ffffff14;border-radius:14px;padding:10px 12px;display:flex;align-items:center;gap:9px;font-size:12px;color:#dfe8ee;font-weight:600}
-.tabbar{margin-top:auto;display:flex;align-items:center;justify-content:space-around;background:#0009;border:1px solid #ffffff14;border-radius:18px;padding:10px 6px}
-.tabbar span{font-size:15px;opacity:.55}
-.tabbar span.on{opacity:1;color:var(--lime);text-shadow:0 0 12px #ccff0088}
 
 .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:40px 0}
 .stat-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
@@ -75,11 +79,35 @@ section{padding:88px 0}
 .section-copy{color:var(--muted);font-size:16.5px;max-width:600px}
 
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{padding:26px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(160deg,#15161ce6,#0d0e12cc)}
+.card{padding:26px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(160deg,#15161ce6,#0d0e12cc);transition:transform .2s ease,border-color .2s ease}
+.card:hover{transform:translateY(-3px);border-color:#363b45}
 .card .icon{width:44px;height:44px;border-radius:12px;background:#ccff0014;display:grid;place-items:center;font-size:20px;margin-bottom:16px}
 .card.pink .icon{background:#ff65ad17;box-shadow:0 0 0 1px #ff65ad30 inset}
+.card.blue .icon{background:#6fe0ff17;box-shadow:0 0 0 1px #6fe0ff30 inset}
 .card h3{font-size:18px;margin:0 0 8px;letter-spacing:-.01em}
 .card p{color:var(--muted);margin:0;font-size:14.5px;line-height:1.55}
+
+/* ---------- Scroll-linked demo ---------- */
+.demo-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:start}
+.demo-sticky{position:sticky;top:96px;display:flex;justify-content:center}
+.demo-steps{display:flex;flex-direction:column;gap:0}
+.demo-step{min-height:62vh;display:flex;flex-direction:column;justify-content:center;padding:36px 0;border-left:2px solid var(--line);padding-left:28px;opacity:.4;transition:opacity .35s ease}
+.demo-step:last-child{min-height:40vh}
+.demo-step.active{opacity:1;border-left-color:var(--lime)}
+.demo-num{color:var(--muted);font-weight:800;font-size:12.5px;letter-spacing:.06em;margin-bottom:10px}
+.demo-step.active .demo-num{color:var(--lime)}
+.demo-step h3{font-size:clamp(22px,3vw,30px);letter-spacing:-.03em;margin:0 0 12px}
+.demo-step p{color:var(--muted);font-size:16px;max-width:460px;margin:0}
+.demo-phone-frame{position:relative;width:min(272px,74vw);aspect-ratio:9/19.3;border:1px solid #363b45;border-radius:46px;padding:11px;background:#020203;box-shadow:0 40px 90px -20px #000c,0 0 0 1px #000}
+.demo-phone-frame .screen{position:absolute;inset:11px;border-radius:36px;overflow:hidden}
+.demo-phone-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;opacity:0;transition:opacity .5s ease}
+.demo-phone-frame img.active{opacity:1}
+.notch{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:88px;height:22px;background:#000;border-radius:14px;z-index:2}
+@media(max-width:900px){
+  .demo-grid{grid-template-columns:1fr}
+  .demo-sticky{position:relative;top:0;margin-bottom:12px}
+  .demo-step{min-height:0;padding:22px 0 22px 20px}
+}
 
 .promise{border-radius:28px;padding:clamp(30px,6vw,64px);background:linear-gradient(120deg,#D6FF3D,#7CE8C9 70%);color:#07120a;display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
 .promise h2{font-size:clamp(30px,5vw,46px);line-height:1.02;letter-spacing:-.04em;margin:0 0 14px}
@@ -115,11 +143,15 @@ html.js .reveal.in{opacity:1;transform:none}
   html{scroll-behavior:auto}
   html.js .reveal{opacity:1;transform:none;transition:none}
   .button:hover{transform:none}
+  .dot.pulse{animation:none}
+  .demo-step{opacity:1}
+  .demo-phone-frame img{transition:none}
 }
 @media(max-width:860px){
   .hero{grid-template-columns:1fr;text-align:center;padding-top:30px}
   .hero p.lead{margin:0 auto 28px}
   .cta-row{justify-content:center}
+  .trust-row{justify-content:center}
   .phone-wrap{order:-1;margin-bottom:8px}
   .grid{grid-template-columns:1fr 1fr}
   .promise{grid-template-columns:1fr}
@@ -140,7 +172,7 @@ html.js .reveal.in{opacity:1;transform:none}
       <a class="brand" href="/"><span class="mark" aria-hidden="true">🐾</span> PetSignal</a>
       <div class="nav-links">
         <a href="#features">Features</a>
-        <a href="#screens">Screens</a>
+        <a href="#demo">How it works</a>
         <a href="#safety">Safety</a>
         <a href="#faq">FAQ</a>
         <a class="button small js-beta" href="#">Join the beta</a>
@@ -153,22 +185,37 @@ html.js .reveal.in{opacity:1;transform:none}
   <div class="wrap">
     <section class="hero">
       <div>
-        <span class="eyebrow"><span class="dot" aria-hidden="true"></span> TestFlight beta now open · iOS</span>
+        <span class="eyebrow"><span class="dot pulse" aria-hidden="true"></span> TestFlight beta now open · iOS</span>
         <h1>Know before the pavement does.</h1>
-        <p class="lead">PetSignal checks paw-burn risk before every walk, maps 1,637 real council off-leash areas, and links up nearby lost-pet sightings — built by dog owners, for Australian dog owners.</p>
+        <p class="lead">PetSignal checks paw-burn risk before every walk, maps 1,637 real council off-leash areas, and surfaces nearby hazards and lost-pet sightings — built by dog owners, for Australian dog owners.</p>
         <div class="cta-row">
           <a class="button js-beta" href="#">Join the TestFlight beta →</a>
-          <a class="button secondary" href="#features">See what's inside</a>
+          <a class="button secondary" href="#demo">See it in action</a>
         </div>
         <p class="hero-note">Free on iOS. No account required to stay safe.</p>
+        <div class="trust-row">
+          <span class="trust-item"><span class="ic">🇦🇺</span> Australian council open-data</span>
+          <span class="trust-item"><span class="ic">🔒</span> No ads, no tracking SDKs</span>
+          <span class="trust-item"><span class="ic">📡</span> Live weather via Open-Meteo</span>
+        </div>
       </div>
       <div class="phone-wrap">
-        <!-- A real screenshot from the shipping build, not a mockup. If the app
-             changes, this has to change with it — that is the point. -->
+        <!-- Real screenshots from the shipping build, not mockups. If the app
+             changes, these have to change with it — that is the point. -->
         <div class="phone">
           <div class="notch" aria-hidden="true"></div>
-          <img class="screen-shot" src="/img/screen-home.jpg" width="620" height="1347"
-               alt="PetSignal's walk screen: a paw check reading Good to walk with the pavement estimated around 10°C, and Luna's walking plan suggesting three shorter walks a day because of arthritis.">
+          <div class="screen">
+            <img class="screen-shot" src="/img/screen-hero-map.jpg" width="620" height="1347"
+                 alt="PetSignal's map over Caroline Springs, Melbourne: off-leash areas clustered by count, a tick hazard pin, a snake warning pin, and a Lost & found button.">
+          </div>
+        </div>
+        <div class="float-chip top reveal">
+          <span style="font-size:16px">🐾</span>
+          <span><span class="chip-label">Paw check</span><br><span class="chip-value">Good to walk</span></span>
+        </div>
+        <div class="float-chip bottom reveal">
+          <span class="chip-label">Off-leash areas mapped</span>
+          <span class="chip-value" style="font-size:18px">1,637</span>
         </div>
       </div>
     </section>
@@ -177,10 +224,10 @@ html.js .reveal.in{opacity:1;transform:none}
   <section class="stats" aria-label="PetSignal by the numbers">
     <div class="wrap">
       <ul class="stat-grid reveal">
-        <li><strong>1,637</strong><span>off-leash areas mapped</span></li>
-        <li><strong>36</strong><span>councils</span></li>
-        <li><strong>100%</strong><span>council-sourced data</span></li>
-        <li><strong>24/7</strong><span>Poisons hotline in Emergency</span></li>
+        <li><strong data-count="1637">1,637</strong><span>off-leash areas mapped</span></li>
+        <li><strong data-count="36">36</strong><span>councils</span></li>
+        <li><strong data-count="100" data-suffix="%">100%</strong><span>council-sourced data</span></li>
+        <li><strong style="font-size:clamp(24px,4vw,36px)">24/7</strong><span>Poisons hotline in Emergency</span></li>
       </ul>
     </div>
   </section>
@@ -196,34 +243,52 @@ html.js .reveal.in{opacity:1;transform:none}
         <article class="card reveal"><div class="icon" aria-hidden="true">🐾</div><h3>Paw check</h3><p>Live weather becomes a clear paw-burn safety call, calibrated against published veterinary data, plus the next safer walk window.</p></article>
         <article class="card reveal"><div class="icon" aria-hidden="true">🗺️</div><h3>Real off-leash maps</h3><p>1,637 council-sourced off-leash areas across 36 councils, with fencing status and usage rules wherever the council publishes them — not empty map pins.</p></article>
         <article class="card pink reveal"><div class="icon" aria-hidden="true">📍</div><h3>Lost-pet signal chain</h3><p>Sightings, photos, direction and time link straight back to the original alert, so nearby owners can act together fast.</p></article>
-        <article class="card reveal"><div class="icon" aria-hidden="true">🐕</div><h3>Walk history + share cards</h3><p>Every walk recorded on your device. Spot healthy routines, and share a polished walk card when you choose to.</p></article>
+        <article class="card blue reveal"><div class="icon" aria-hidden="true">🧭</div><h3>Spoken turn-by-turn</h3><p>A heading-aware map arrow and spoken directions — "turn left in 50 metres" — read your route out loud, even with the phone locked.</p></article>
         <article class="card reveal"><div class="icon" aria-hidden="true">🧠</div><h3>On-device AI behaviour guide</h3><p>Ask about barking, reactivity or recall and get a private answer, powered by Apple's on-device intelligence — nothing leaves your phone.</p></article>
         <article class="card reveal"><div class="icon" aria-hidden="true">⚠️</div><h3>Community hazards</h3><p>Snakes, ticks, glass, toxic plants and mess hotspots reported by nearby owners, so you know what's ahead before your dog does.</p></article>
       </div>
     </section>
 
-    <section id="screens" style="padding-top:0">
+    <section id="demo">
       <div class="section-head reveal">
-        <span class="eyebrow-sm">The app itself</span>
+        <span class="eyebrow-sm">How it works</span>
         <h2 class="section-title">Straight from the build.</h2>
-        <p class="section-copy">Real screenshots, not mockups — this is what you get when you install it.</p>
+        <p class="section-copy">Real screenshots, not mockups — scroll to follow one walk from the front door to the loop back home.</p>
       </div>
-      <div class="shots reveal">
-        <figure>
-          <img src="/img/screen-walk.jpg" width="520" height="1130" loading="lazy"
-               alt="A walk in progress: the live map with the route walked so far, nearby off-leash area and dog-friendly café, and the duration and distance.">
-          <figcaption>During the walk: your track, what's nearby, and a target that suits your dog.</figcaption>
-        </figure>
-        <figure>
-          <img src="/img/screen-map.jpg" width="520" height="1130" loading="lazy"
-               alt="The map zoomed out over Melbourne, off-leash areas grouped into counted clusters.">
-          <figcaption>Every council off-leash area, clustered so a whole city stays readable.</figcaption>
-        </figure>
-        <figure>
-          <img src="/img/screen-plan.jpg" width="520" height="1130" loading="lazy"
-               alt="The pre-walk planner suggesting loops the owner already walks, with advice on which are fresh again for the dog.">
-          <figcaption>Before you go: routes you already walk, and which ones your dog will still find interesting.</figcaption>
-        </figure>
+      <div class="demo-grid">
+        <div class="demo-sticky">
+          <div class="demo-phone-frame">
+            <div class="notch" aria-hidden="true"></div>
+            <div class="screen">
+              <img class="demo-img active" data-step="0" src="/img/screen-hazards.jpg" alt="Home screen: a paw check reading Good to walk with pavement estimated at 14°C, and active warnings for a snake, broken glass and ticks nearby.">
+              <img class="demo-img" data-step="1" src="/img/screen-map-hazards.jpg" alt="The map over Caroline Springs, off-leash areas clustered by count, a tick and a snake hazard pin, and a Lost and found button.">
+              <img class="demo-img" data-step="2" src="/img/screen-walk.jpg" alt="A walk in progress: the live map with the route walked so far, nearby off-leash area and dog-friendly café, and the duration and distance.">
+              <img class="demo-img" data-step="3" src="/img/screen-plan.jpg" alt="The pre-walk planner suggesting loops the owner already walks, with advice on which are fresh again for the dog.">
+            </div>
+          </div>
+        </div>
+        <div class="demo-steps">
+          <article class="demo-step" data-step="0">
+            <div class="demo-num">STEP 1 · BEFORE YOU LEAVE</div>
+            <h3>Know before you go.</h3>
+            <p>Open the app and get an instant paw-burn call for right now, plus anything nearby worth knowing about — a snake sighting, broken glass, a tick warning from a local vet.</p>
+          </article>
+          <article class="demo-step" data-step="1">
+            <div class="demo-num">STEP 2 · FIND SOMEWHERE TO GO</div>
+            <h3>Every off-leash area, mapped.</h3>
+            <p>1,637 real council-sourced off-leash areas across Melbourne and beyond, clustered so a whole city stays readable — plus live hazard pins and Lost &amp; Found reports from nearby owners.</p>
+          </article>
+          <article class="demo-step" data-step="2">
+            <div class="demo-num">STEP 3 · DURING THE WALK</div>
+            <h3>Track it, hands mostly free.</h3>
+            <p>Your route draws live on the map, with nearby off-leash areas and dog-friendly cafés surfaced as you pass them — and spoken turn-by-turn directions if you're following a planned loop.</p>
+          </article>
+          <article class="demo-step" data-step="3">
+            <div class="demo-num">STEP 4 · NEXT TIME</div>
+            <h3>Plan the next one.</h3>
+            <p>PetSignal remembers the loops you already walk and tells you which ones are due for a rotation, so the same walk doesn't get stale for a dog that notices everything.</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -302,15 +367,61 @@ html.js .reveal.in{opacity:1;transform:none}
 
 <script>
 (function(){
-  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if(!('IntersectionObserver' in window)) return;
-  document.documentElement.classList.add('js');
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, {threshold:.12});
-  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  var reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Scroll reveal
+  if('IntersectionObserver' in window && !reduceMotion){
+    document.documentElement.classList.add('js');
+    var revealIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); revealIo.unobserve(e.target); }
+      });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){ revealIo.observe(el); });
+  }
+
+  // Count-up stats. The markup already holds the correct final number, so a
+  // no-JS visitor or a failed script never sees anything but the real figure
+  // — this only ever animates FROM zero TO the number that's already there.
+  if('IntersectionObserver' in window && !reduceMotion){
+    var counters = document.querySelectorAll('[data-count]');
+    var countIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        countIo.unobserve(e.target);
+        var el = e.target;
+        var target = parseInt(el.getAttribute('data-count'), 10);
+        var suffix = el.getAttribute('data-suffix') || '';
+        var start = null, duration = 1100;
+        function step(ts){
+          if(start === null) start = ts;
+          var progress = Math.min((ts - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(eased * target).toLocaleString() + suffix;
+          if(progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }, {threshold:.4});
+    counters.forEach(function(el){ countIo.observe(el); });
+  }
+
+  // Scroll-linked feature demo: swap the sticky phone's screenshot as each
+  // step scrolls through the middle of the viewport.
+  var steps = document.querySelectorAll('.demo-step');
+  var images = document.querySelectorAll('.demo-img');
+  if(steps.length && 'IntersectionObserver' in window){
+    var demoIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var idx = e.target.getAttribute('data-step');
+        steps.forEach(function(s){ s.classList.toggle('active', s.getAttribute('data-step') === idx); });
+        images.forEach(function(img){ img.classList.toggle('active', img.getAttribute('data-step') === idx); });
+      });
+    }, {threshold:.5, rootMargin:'-20% 0px -20% 0px'});
+    steps.forEach(function(s){ demoIo.observe(s); });
+    steps[0].classList.add('active');
+  }
 })();
 </script>
 </body>
