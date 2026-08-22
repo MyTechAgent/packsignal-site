@@ -55,7 +55,7 @@ footer.site{border-top:1px solid var(--line);padding:40px 0 56px;margin-top:40px
       <div class="nav-links">
         <a href="index.html#features">Features</a>
         <a href="support.html">Support</a>
-        <a class="button js-beta" href="#">Join the beta</a>
+        <a class="button" href="mailto:aiethereals@gmail.com?subject=PetSignal%20beta%20invite">Ask for an invite</a>
       </div>
     </nav>
   </div>
@@ -64,7 +64,7 @@ footer.site{border-top:1px solid var(--line);padding:40px 0 56px;margin-top:40px
   <div class="wrap">
     <article class="legal">
 <h1>🐾 Privacy Policy</h1>
-<p class="updated">Last updated: 21 August 2026 · Applies to the PetSignal iOS app</p>
+<p class="updated">Last updated: 22 August 2026 · Applies to the PetSignal iOS app</p>
 
 <p>PetSignal is built local-first: the most private place for your data is your own phone, so that is where it lives and where the app reads and writes it. The app works fully offline and no account is required to use it.</p>
 
@@ -77,9 +77,14 @@ footer.site{border-top:1px solid var(--line);padding:40px 0 56px;margin-top:40px
 </ul>
 <p>These are stored on our Australian server (Sydney) and are readable only by your own account. Database-level rules restrict every row to the account that created it; no other user, signed in or not, can read them. We do not share, sell, aggregate or publish them, and they are never shown to another user. Signing out leaves the copy on your phone untouched. Deleting your account deletes the backup with it.</p>
 
+<h2>PetSignal AI (the hosted assistant)</h2>
+<p>Most questions are answered on your phone — by Apple’s on-device model where the device supports it, and otherwise from the guide bundled with the app. Neither sends anything anywhere.</p>
+<p>When those can’t answer, the question goes to <strong>PetSignal AI</strong>. That means it leaves your phone: your question, and your dog’s name, size, vibe and any health notes you chose to record, are sent to our Supabase function in Sydney and on to <a href="https://openrouter.ai/">OpenRouter</a> in the United States, which routes it to one of several model providers. We do not send your name, your account, your location, your routes, your photos or your videos, and we do not keep the conversation.</p>
+<p>The request carries an anonymous per-install identifier so the daily allowance can be counted. It is not your account and it is not linked to one, it is used only to count the allowance, and it is deleted after seven days. The same path writes the daily tip on the home screen, which is generated once a day without you asking — the card says whether the words came from PetSignal AI or from the bundled guide.</p>
+<p><strong>You can turn all of this off.</strong> Under Dogs → PetSignal AI, switching it off means nothing is sent for questions or the daily tip, and the guide on your phone answers instead.</p>
+
 <h2>What stays on your device (never uploaded)</h2>
 <ul>
-<li><strong>AI conversations</strong> — Apple’s on-device model and the bundled guide stay on your phone. When the clearly labelled PetSignal AI fallback is used, your question plus the dog’s name, size, vibe and any health context you chose to record are sent to our Supabase function and its model provider to produce the answer. We do not send your identity, location, routes, photos or videos, and we do not retain the conversation as app content.</li>
 <li><strong>Saved and smart places</strong> — the places your walks tend to end, kept only on your phone.</li>
 <li><strong>Park community drafts, posts and media</strong> — while the public community service is disabled, anything you create in The Park remains on your phone and is not uploaded. We will update this policy and ask for agreement before public sharing is enabled.</li>
 </ul>
@@ -102,7 +107,7 @@ footer.site{border-top:1px solid var(--line);padding:40px 0 56px;margin-top:40px
 <ul>
 <li>No account is required. If you choose Sign in with Apple, we receive Apple’s private account identifier and the email/name you choose to share, solely for account functionality.</li>
 <li>No tracking and no advertising SDKs.</li>
-<li>No selling or sharing of data with third parties.</li>
+<li>No selling of your data, and no sharing of it for advertising. The only third party that receives any of your content is the AI provider described above, and only when the assistant is switched on.</li>
 <li>No analytics that identify you.</li>
 </ul>
 
